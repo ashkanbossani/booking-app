@@ -5,6 +5,8 @@ import { faBed } from "@fortawesome/free-solid-svg-icons";
 import { faPlane } from "@fortawesome/free-solid-svg-icons";
 import { faCar } from "@fortawesome/free-solid-svg-icons";
 import { faTaxi } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faPerson } from "@fortawesome/free-solid-svg-icons";
 
 function Header(props) {
   return (
@@ -13,28 +15,54 @@ function Header(props) {
         <div className="header__list">
           <div className="header__list--item active">
             <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <p>Stays</p>
           </div>
           <div className="header__list--item">
             <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
+            <p>Flights</p>
           </div>
           <div className="header__list--item">
             <FontAwesomeIcon icon={faCar} />
-            <span>Car Rentals</span>
+            <p>Car Rentals</p>
           </div>
           <div className="header__list--item">
             <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
+            <p>Attractions</p>
           </div>
           <div className="header__list--item">
             <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport Taxis</span>
+            <p>Airport Taxis</p>
           </div>
         </div>
-        <h1 className="header__title">Book unique places to stay and things to do.</h1>
-        <p className="header__description">Get rewarded for your travels - inlock instant savings of 10% or more with a free Booking.com account</p>
+        <h1 className="header__title">
+          Book unique places to stay and things to do.
+        </h1>
+        <p className="header__description">
+          Get rewarded for your travels - inlock instant savings of 10% or more
+          with a free Booking.com account
+        </p>
         <button className="header__button">Sign In / Register</button>
+        <div className="header__search">
+          <div className="header__search__item">
+            <FontAwesomeIcon icon={faBed} className="header__icons"/>
+            <input
+              type="text"
+              placeholder="Where are you going?"
+              className="header__search__item--input"
+            />
+          </div>
+          <div className="header__search__item">
+            <FontAwesomeIcon icon={faCalendarDays}className="header__icons" />
+            <p className="header__search__text">date to date</p>
+          </div>
+          <div className="header__search__item">
+            <FontAwesomeIcon icon={faPerson} className="header__icons"/>
+            <p className="header__search__text">2 adults 2 childern 1 room</p>
+          </div>
+          <div className="header__search__item">
+            <button className="header__button">Search</button>
+          </div>
+        </div>
       </div>
     </div>
   );
