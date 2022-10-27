@@ -22,6 +22,21 @@ function Header(props) {
   ]);
 
   const [openDate, setOpenDate] = useState(false);
+  const [openOptions, setOpenOptions] = useState(false);
+  const [options, setOptions] = useState({
+    adults: 1,
+    children: 0,
+    rooms: 1,
+  });
+
+  const handleOption = (name, operation) => {
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+      };
+    });
+  };
 
   return (
     <div className="header">
@@ -67,21 +82,89 @@ function Header(props) {
           </div>
           <div className="header__search__item">
             <FontAwesomeIcon icon={faCalendarDays} className="header__icons" />
-            <p onClick={()=>setOpenDate(!openDate)} className="header__search__text">{`${format(
-              date[0].startDate,
+            <p
+              onClick={() => setOpenDate(!openDate)}
+              className="header__search__text"
+            >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+              date[0].endDate,
               "MM/dd/yyyy"
-            )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</p>
-            {openDate && <DateRange
-              editableDateInputs={true}
-              onChange={(item) => setDate([item.selection])}
-              moveRangeOnFirstSelection={false}
-              ranges={date}
-              className="header__date"
-            />}
+            )}`}</p>
+            {openDate && (
+              <DateRange
+                editableDateInputs={true}
+                onChange={(item) => setDate([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={date}
+                className="header__date"
+              />
+            )}
           </div>
           <div className="header__search__item">
             <FontAwesomeIcon icon={faPerson} className="header__icons" />
-            <p className="header__search__text">2 adults 2 childern 1 room</p>
+            <p
+              onClick={() => setOpenOptions(!openOptions)}
+              className="header__search__text"
+            >{`${options.adults} adult · ${options.children} childern · ${options.rooms} room`}</p>
+            {openOptions && (
+              <div className="header__options">
+                <div className="header__options__item">
+                  <p className="header__options__text">Adults</p>
+                  <div className="header__options__counter">
+                    <button
+                      className="header__options__button"
+                      onClick={() => handleOption("adults", "d")}
+                    >
+                      -
+                    </button>
+                    <p className="header__options__number">{options.adults}</p>
+                    <button
+                      className="header__options__button"
+                      onClick={() => handleOption("adults", "i")}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="header__options__item">
+                  <p className="header__options__text">Children</p>
+                  <div className="header__options__counter">
+                    <button
+                      className="header__options__button"
+                      onClick={() => handleOption("children", "d")}
+                    >
+                      -
+                    </button>
+                    <p className="header__options__number">
+                     {options.children}
+                    </p>
+                    <button
+                      className="header__options__button"
+                      onClick={() => handleOption("children", "i")}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="header__options__item">
+                  <p className="header__options__text">Rooms</p>
+                  <div className="header__options__counter">
+                    <button
+                      className="header__options__button"
+                      onClick={() => handleOption("rooms", "d")}
+                    >
+                      -
+                    </button>
+                    <p className="header__options__number">{options.rooms}</p>
+                    <button
+                      className="header__options__button"
+                      onClick={() => handleOption("rooms", "i")}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           <div className="header__search__item">
             <button className="header__button">Search</button>
