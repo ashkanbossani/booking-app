@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed } from "@fortawesome/free-solid-svg-icons";
@@ -7,8 +7,21 @@ import { faCar } from "@fortawesome/free-solid-svg-icons";
 import { faTaxi } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css"; // main style file
+import 'react-date-range/dist/theme/default.css';
+import {format} from 'date-fns';
+
 
 function Header(props) {
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
   return (
     <div className="header">
       <div className="header__container">
@@ -44,7 +57,7 @@ function Header(props) {
         <button className="header__button">Sign In / Register</button>
         <div className="header__search">
           <div className="header__search__item">
-            <FontAwesomeIcon icon={faBed} className="header__icons"/>
+            <FontAwesomeIcon icon={faBed} className="header__icons" />
             <input
               type="text"
               placeholder="Where are you going?"
@@ -52,11 +65,19 @@ function Header(props) {
             />
           </div>
           <div className="header__search__item">
-            <FontAwesomeIcon icon={faCalendarDays}className="header__icons" />
-            <p className="header__search__text">date to date</p>
+            <FontAwesomeIcon icon={faCalendarDays} className="header__icons" />
+            <p className="header__search__text">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</p>
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setDate([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={date}
+              className="header__date"
+
+            />
           </div>
           <div className="header__search__item">
-            <FontAwesomeIcon icon={faPerson} className="header__icons"/>
+            <FontAwesomeIcon icon={faPerson} className="header__icons" />
             <p className="header__search__text">2 adults 2 childern 1 room</p>
           </div>
           <div className="header__search__item">
