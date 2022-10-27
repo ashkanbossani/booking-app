@@ -1,0 +1,32 @@
+@use "../../styles/partials/global" as *;
+
+.header{
+    background-color: $primary-color;
+    color:white;
+    display: flex;
+    justify-content: center;
+
+    &__container{
+        width:100%;
+        max-width: 64rem;
+        margin:20px 0px 100px 0px;
+    }
+
+    &__list{
+        display:flex;
+        gap:2.5rem;
+
+        &--item{
+            display:flex;
+            align-items: center;
+            gap:0.625rem;
+            cursor:pointer
+        }
+
+        &--item.active{
+            border: 1px solid white;
+            padding:0.625rem;
+            border-radius:1rem;
+        }
+    }
+}
