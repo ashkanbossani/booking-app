@@ -1,1 +1,28 @@
 @use '../../styles/partials/global' as *;
+
+.navbar{
+    height:3.125rem;
+    background-color: $primary-color;
+    display:flex;
+    justify-content: center;
+
+    &__container{
+        width:100%;
+        max-width:64rem;
+        color:$primary-white;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo{
+        font-weight:500;
+    }
+
+    &__button{
+        margin-left:1.25rem;
+        border:none;
+        padding: 5px 10px;
+        color:$primary-color;
+    }
+}
