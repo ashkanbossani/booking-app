@@ -7,7 +7,7 @@ function List(props) {
     return (
         <div>
             <Navbar/>
-            <Header/>
+            <Header type="list"/>
         </div>
     );
 }
