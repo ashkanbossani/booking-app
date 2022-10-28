@@ -116,6 +116,10 @@
             color:$button-color;
             background-color: white;
             cursor: pointer;
+
+            &:disabled{
+                cursor:not-allowed
+            }
         }
     }
 
