@@ -113,6 +113,7 @@ function Header(props) {
                     <button
                       className="header__options__button"
                       onClick={() => handleOption("adults", "d")}
+                      disabled={options.adults <= 1}
                     >
                       -
                     </button>
@@ -131,6 +132,7 @@ function Header(props) {
                     <button
                       className="header__options__button"
                       onClick={() => handleOption("children", "d")}
+                      disabled={options.children < 1}
                     >
                       -
                     </button>
@@ -151,6 +153,7 @@ function Header(props) {
                     <button
                       className="header__options__button"
                       onClick={() => handleOption("rooms", "d")}
+                      disabled={options.rooms <= 1}
                     >
                       -
                     </button>
