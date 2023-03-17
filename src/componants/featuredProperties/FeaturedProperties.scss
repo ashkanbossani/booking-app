@@ -1,0 +1,47 @@
+@use "../../styles/partials/global" as *;
+
+.featuredProperties{
+    width:100%;
+    max-width:1024px;
+    display:flex;
+    justify-content: space-between;
+    gap:20px;
+
+    &__item{
+        flex:1;
+        gap:10px;
+        display:flex;
+        flex-direction:column
+    }
+
+    &__image{
+       width:100%; 
+    }
+
+    &__Name{
+        font-weight: bold;
+        font-family: "Avenir Next Regular";
+    }
+
+    &__City{
+        font-family: "Avenir Regular";
+    }
+
+    &__Price{
+        font-weight: 500;
+        font-family: "Avenir Next Regular";
+    }
+
+    &__rating>button{
+        background-color: $primary-color;
+        color: white;
+        border:none;
+        padding:3px;
+        margin-right: 10px;
+        font-weight: bold;;
+    }
+
+    &__rating>span{
+        font-size: 14px;
+    }
+}
