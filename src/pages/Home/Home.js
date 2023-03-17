@@ -4,6 +4,7 @@ import Navbar from "../../componants/Navbar/Navbar";
 import Header from "../../componants/Header/Header";
 import Featured from "../../componants/Featured/Featured";
 import PropertyList from "../../componants/PropertyList/PropertyList";
+import FeaturedProperties from "../../componants/FeaturedProperties/FeaturedProperties";
 function Home(props) {
   return (
     <div>
@@ -14,6 +15,7 @@ function Home(props) {
         <h1 className="home__title">Browse by property type</h1>
         <PropertyList />
         <h1 className="home__title">Homes guests love</h1>
+        <FeaturedProperties/>
       </div>
     </div>
   );
