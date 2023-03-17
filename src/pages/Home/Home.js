@@ -13,6 +13,7 @@ function Home(props) {
         <Featured />
         <h1 className="home__title">Browse by property type</h1>
         <PropertyList />
+        <h1 className="home__title">Homes guests love</h1>
       </div>
     </div>
   );
