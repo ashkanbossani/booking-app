@@ -4,7 +4,11 @@ import Navbar from "../../componants/Navbar/Navbar";
 import Header from "../../componants/Header/Header";
 import Featured from "../../componants/Featured/Featured";
 import PropertyList from "../../componants/PropertyList/PropertyList";
-import FeaturedProperties from "../../componants/FeaturedProperties/FeaturedProperties";
+import FeaturedProperties from "../../componants/featuredProperties/FeaturedProperties";
+import MailList from "../../componants/MailList/MailList";
+
+
+
 function Home(props) {
   return (
     <div>
@@ -16,6 +20,8 @@ function Home(props) {
         <PropertyList />
         <h1 className="home__title">Homes guests love</h1>
         <FeaturedProperties/>
+        <MailList/>
+      
       </div>
     </div>
   );
